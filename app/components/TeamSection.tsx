@@ -1,71 +1,141 @@
-import styles from "../page.module.css";
+"use client";
 
-const teams = [
-  {
-    title: "U-12",
-    grade: "小学6年生",
-    description: "技術と戦術理解を深め、個人とチームの両方を伸ばす最上位クラス。",
-    schedule: "毎週土・日曜",
-  },
-  {
-    title: "U-11",
-    grade: "小学5年生",
-    description: "ポジション意識と連携プレーを学びながら、競技レベルを高めます。",
-    schedule: "毎週土・日曜",
-  },
-  {
-    title: "U-10",
-    grade: "小学4年生",
-    description: "基礎技術をしっかり身につけ、楽しさと勝負へのこだわりを育てます。",
-    schedule: "毎週土・日曜",
-  },
-  {
-    title: "U-9",
-    grade: "小学3年生",
-    description: "ボールコントロールと仲間との関わりを通じて、サッカーの面白さを発見します。",
-    schedule: "毎週日曜",
-  },
-  {
-    title: "U-8",
-    grade: "小学2年生",
-    description: "遊びを通じてサッカーの基礎を学び、動くことの楽しさを育みます。",
-    schedule: "毎週日曜",
-  },
-  {
-    title: "U-7",
-    grade: "小学1年生",
-    description: "ボールに親しみ、走ることが好きになるための入門クラスです。",
-    schedule: "毎週日曜",
-  },
-  {
-    title: "キッズ",
-    grade: "年長・年中",
-    description: "サッカーを通じて体を動かす習慣とお友達との交流を大切にします。",
-    schedule: "月2回・土曜",
-  },
-];
+import Image from "next/image";
+import { useState } from "react";
+import styles from "./TeamSection.module.css";
+
+function TeamImg({ src, alt }: { src: string; alt: string }) {
+  const [err, setErr] = useState(false);
+  return (
+    <div className={styles.imageWrap}>
+      {!err ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className={styles.image}
+          onError={() => setErr(true)}
+        />
+      ) : (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            background: "linear-gradient(135deg, #2a2a2a, #600010)",
+            display: "grid",
+            placeItems: "center",
+          }}
+          aria-hidden="true"
+        />
+      )}
+    </div>
+  );
+}
 
 export default function TeamSection() {
   return (
     <section id="team" className={styles.section}>
-      <div className={styles.sectionHeading}>
-        <p className={styles.sectionOverline}>チーム紹介</p>
-        <h2 className={styles.sectionTitle}>TEAM</h2>
+      <div className={styles.heading}>
+        <p className={styles.overline}>カテゴリー紹介</p>
+        <h2 className={styles.title}>TEAM CATEGORIES</h2>
       </div>
-      <div className={styles.teamGrid}>
-        {teams.map((team) => (
-          <article key={team.title} className={styles.teamCard}>
-            <div className={styles.teamCardHeader}>
-              <h3 className={styles.teamTitle}>{team.title}</h3>
-              <span className={styles.teamGrade}>{team.grade}</span>
+
+      <div className={styles.grid}>
+        {/* ── JUNIOR ───────────────────────────────────────────── */}
+        <article className={styles.card}>
+          <TeamImg src="/images/team-junior.jpg" alt="ジュニアクラスの試合風景" />
+          <div className={styles.body}>
+            <div className={styles.categoryBadge}>
+              <span className={styles.categoryLabel}>JUNIOR</span>
+              <span className={styles.categoryTarget}>U-7〜U-12</span>
             </div>
-            <p className={styles.teamDescription}>{team.description}</p>
-            <p className={styles.teamSchedule}>
-              <span className={styles.teamScheduleLabel}>活動日</span>
-              {team.schedule}
+
+            <div>
+              <p className={styles.grade}>ジュニアカテゴリー</p>
+              <p className={styles.gradeSub}>小学1〜6年生対象</p>
+            </div>
+
+            <h3 className={styles.cardHeading}>
+              成長に合わせて、次のステージへ。
+            </h3>
+
+            <p className={styles.description}>
+              小学1年生から6年生まで、年代に応じた指導を行い、個人技・判断力・チームワークを段階的に育てます。
             </p>
-          </article>
-        ))}
+
+            <div className={styles.steps} aria-label="育成ステップ">
+              <div className={styles.step}>
+                <span className={styles.stepDot} aria-hidden="true" />
+                <div className={styles.stepBody}>
+                  <span className={styles.stepTitle}>U-7・U-8</span>
+                  <span className={styles.stepLabel}>基礎・楽しさ</span>
+                  <span className={styles.stepDesc}>
+                    ボール操作とサッカーを楽しむ姿勢を身につける
+                  </span>
+                </div>
+              </div>
+              <div className={styles.step}>
+                <span className={styles.stepDot} aria-hidden="true" />
+                <div className={styles.stepBody}>
+                  <span className={styles.stepTitle}>U-9・U-10</span>
+                  <span className={styles.stepLabel}>個人技・判断</span>
+                  <span className={styles.stepDesc}>
+                    技術を磨き、自分で考えてプレーする力を育てる
+                  </span>
+                </div>
+              </div>
+              <div className={styles.step}>
+                <span className={styles.stepDot} aria-hidden="true" />
+                <div className={styles.stepBody}>
+                  <span className={styles.stepTitle}>U-11・U-12</span>
+                  <span className={styles.stepLabel}>戦術・自立</span>
+                  <span className={styles.stepDesc}>
+                    チーム戦術を理解し、自立した選手を目指す
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <a href="#join" className={styles.cta}>
+              ジュニアカテゴリーを見る
+            </a>
+          </div>
+        </article>
+
+        {/* ── KIDS ─────────────────────────────────────────────── */}
+        <article className={styles.card}>
+          <TeamImg src="/images/team-kids.jpg" alt="キッズクラスの練習風景" />
+          <div className={styles.body}>
+            <div className={styles.categoryBadge}>
+              <span className={styles.categoryLabel}>KIDS</span>
+              <span className={styles.categoryTarget}>年中〜年長</span>
+            </div>
+
+            <div>
+              <p className={styles.grade}>キッズクラス</p>
+              <p className={styles.gradeSub}>幼稚園 年中・年長対象</p>
+            </div>
+
+            <h3 className={styles.cardHeading}>
+              はじめてのサッカーを、楽しく。
+            </h3>
+
+            <p className={styles.description}>
+              遊びの要素を取り入れながら、ボールに触れる楽しさや、仲間と一緒に体を動かす喜びを育てます。
+            </p>
+
+            <div className={styles.points} aria-label="育成テーマ">
+              <span className={styles.pointTag}>楽しむ</span>
+              <span className={styles.pointTag}>ボールに慣れる</span>
+              <span className={styles.pointTag}>仲間と遊ぶ</span>
+            </div>
+
+            <a href="#join" className={styles.cta}>
+              キッズクラスを見る
+            </a>
+          </div>
+        </article>
       </div>
     </section>
   );

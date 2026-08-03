@@ -78,6 +78,12 @@ export default function ClubSection() {
           </div>
         ))}
       </div>
+
+      <div className={styles.ctaRow}>
+        <a href="#join" className={styles.ctaButton}>
+          詳細を見る
+        </a>
+      </div>
     </section>
   );
 }

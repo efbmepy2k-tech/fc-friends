@@ -1,0 +1,122 @@
+/* ── ClubSection ─────────────────────────────────────────────────────────── */
+
+.section {
+  padding: 56px 0;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.overline {
+  color: #B50918;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #161616;
+}
+
+/* ── Card grid ───────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ── Individual card ─────────────────────────────────────────────────────── */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  min-height: 110px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+
+  /* Scroll animation initial state */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.24s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Icon wrapper ────────────────────────────────────────────────────────── */
+.iconWrap {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: rgba(181, 9, 24, 0.07);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  color: #B50918;
+}
+
+/* ── Text ────────────────────────────────────────────────────────────────── */
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #161616;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  color: #666666;
+  line-height: 1.5;
+}
+
+/* ── prefers-reduced-motion ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card.visible {
+    transition: box-shadow 0.24s ease;
+    opacity: 1;
+    transform: none;
+  }
+}

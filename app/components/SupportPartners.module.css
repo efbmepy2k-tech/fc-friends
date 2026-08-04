@@ -1,0 +1,151 @@
+/* ── SupportPartners (banner grid) ───────────────────────────────────────── */
+
+.section {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+/* ── Heading ─────────────────────────────────────────────────────────────── */
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 24px;
+}
+
+.overline {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #B50918;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #161616;
+}
+
+/* ── Banner grid ────────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+  border-top: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+}
+
+/* ── Individual banner item ──────────────────────────────────────────── */
+.bannerItem {
+  position: relative;
+  aspect-ratio: 3 / 1;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  background: #fafafa;
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+
+  /* scroll-in initial state */
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.bannerItem.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.bannerImg {
+  object-fit: contain;
+  padding: 20px 32px;
+  transition: transform 0.3s ease;
+}
+
+@media (hover: hover) {
+  .bannerItem:hover .bannerImg {
+    transform: scale(1.04);
+  }
+}
+
+.bannerItem:focus-visible {
+  outline: 2px solid #B50918;
+  outline-offset: -2px;
+}
+
+/* Fallback */
+.bannerFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #aaa;
+  padding: 16px;
+  text-align: center;
+}
+
+/* ── CTA ────────────────────────────────────────────────────────────────── */
+.ctaRow {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #555;
+  border: 1.5px solid #ddd;
+  background: transparent;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ctaButton:hover {
+  border-color: #B50918;
+  color: #B50918;
+}
+
+.ctaButton:focus-visible {
+  outline: 3px solid #B50918;
+  outline-offset: 3px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .bannerItem {
+    aspect-ratio: 3 / 1;
+  }
+  .bannerImg {
+    padding: 16px 24px;
+  }
+}
+
+/* ── prefers-reduced-motion ─────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .bannerItem,
+  .bannerItem.visible,
+  .bannerImg {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+

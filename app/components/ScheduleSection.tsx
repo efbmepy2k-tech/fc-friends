@@ -34,8 +34,8 @@ export default function ScheduleSection() {
     <section id="schedule" className={styles.section}>
       <div className={styles.todayHeader}>
         <div className={styles.todayHeadingGroup}>
-          <span className={styles.todayLabel}>TODAY</span>
-          <h2 className={styles.todayTitle}>今日の予定</h2>
+          <span className={styles.sectionOverline}>本日の予定</span>
+          <h2 className={styles.sectionHeadingLarge}>TODAY</h2>
         </div>
         <a href="/schedule" className={styles.moreLinkRed}>もっと見る &rsaquo;</a>
       </div>

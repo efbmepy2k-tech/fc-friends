@@ -48,8 +48,8 @@ export default function NewsSection() {
     <section id="news" className={styles.section}>
       <div className={styles.newsMobileHeader}>
         <div className={styles.newsTitleGroup}>
-          <span className={styles.newsLabelBold}>NEWS</span>
-          <span className={styles.newsLabelSub}>お知らせ・活動報告</span>
+          <span className={styles.sectionOverline}>最新情報</span>
+          <h2 className={styles.sectionHeadingLarge}>NEWS</h2>
         </div>
         <a href="#" className={styles.moreLinkRed}>もっと見る &rsaquo;</a>
       </div>

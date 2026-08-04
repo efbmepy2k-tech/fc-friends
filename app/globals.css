@@ -12,8 +12,12 @@
 }
 
 html {
+  font-size: 100%; /* 1rem = 16px */
   scroll-behavior: smooth;
   min-height: 100%;
+  /* Prevent mobile browsers from auto-scaling text (key for VS Code vs Chrome diff) */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {

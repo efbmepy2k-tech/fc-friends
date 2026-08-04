@@ -1,0 +1,175 @@
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+
+.footer {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* ── Main grid ───────────────────────────────────────────────────────────── */
+.inner {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 52px 24px 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-areas:
+    "brand  nav     contact"
+    "copy   nav     contact";
+  gap: 0 40px;
+  align-items: start;
+}
+
+/* ── Brand column ────────────────────────────────────────────────────────── */
+.brandCol {
+  grid-area: brand;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.brandName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.brandTagline {
+  font-size: 0.82rem;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.regionLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #C40018;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.regionText {
+  font-size: 0.84rem;
+  color: #aaa;
+}
+
+/* ── Copyright ───────────────────────────────────────────────────────────── */
+.copyCol {
+  grid-area: copy;
+  padding-top: 24px;
+}
+
+.copyright {
+  font-size: 0.76rem;
+  color: #555;
+}
+
+/* ── Navigation ──────────────────────────────────────────────────────────── */
+.navCol {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navLink {
+  color: #aaa;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.navLink:hover {
+  color: #fff;
+}
+
+/* ── Contact column ──────────────────────────────────────────────────────── */
+.contactCol {
+  grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #C40018;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contactSub {
+  font-size: 0.76rem;
+  color: #888;
+  line-height: 1.6;
+}
+
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  min-height: 48px;
+  background: #C40018;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  align-self: flex-start;
+}
+
+.contactBtn:hover {
+  background: #a30014;
+}
+
+.contactBtn:focus-visible {
+  outline: 3px solid #C40018;
+  outline-offset: 3px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "nav"
+      "contact"
+      "copy";
+    padding: 36px 16px 28px;
+    gap: 28px 0;
+  }
+
+  .contactBtn {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .copyCol {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .inner {
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-areas:
+      "brand   contact"
+      "nav     contact"
+      "copy    .";
+    gap: 0 32px;
+  }
+}
+
+/* ── prefers-reduced-motion ──────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .navLink,
+  .contactBtn {
+    transition: none;
+  }
+}

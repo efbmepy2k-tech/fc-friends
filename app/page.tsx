@@ -7,6 +7,7 @@ import JoinCTA from "./components/JoinCTA";
 import ClubSection from "./components/ClubSection";
 import TeamSection from "./components/TeamSection";
 import GallerySection from "./components/GallerySection";
+import SupportPartners from "./components/SupportPartners";
 import Footer from "./components/Footer";
 import BottomNav from "./components/BottomNav";
 import styles from "./page.module.css";
@@ -21,10 +22,14 @@ export default function Home() {
           <EmergencyNotice />
           <ScheduleSection />
           <NewsSection />
-          <JoinCTA />
           <ClubSection />
           <TeamSection />
           <GallerySection />
+        </div>
+        {/* Full-bleed section — outside container for white bg edge-to-edge */}
+        <SupportPartners />
+        <div className={styles.container}>
+          <JoinCTA />
         </div>
       </main>
       <Footer />

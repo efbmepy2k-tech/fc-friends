@@ -1,0 +1,206 @@
+/* ── Header ──────────────────────────────────────────────────────────────── */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.headerInner {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Logo image ──────────────────────────────────────────────────────────── */
+.logoWrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Brand text ──────────────────────────────────────────────────────────── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  /* shrink only if space is very tight, but never collapse */
+  min-width: 0;
+}
+
+.brandName {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #161616;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.brandSince {
+  font-size: 0.65rem;
+  color: #888;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* ── Desktop navigation ──────────────────────────────────────────────────── */
+.navDesktop {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-left: auto;
+}
+
+.navLink {
+  color: #2a2a2a;
+  font-size: 0.88rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 100%;
+  height: 2px;
+  background: #C40018;
+  transition: right 0.25s ease;
+}
+
+.navLink:hover {
+  color: #C40018;
+}
+
+.navLink:hover::after {
+  right: 0;
+}
+
+/* ── Hamburger button ────────────────────────────────────────────────────── */
+.menuButton {
+  display: none; /* hidden by default; shown on mobile via media query */
+  flex-shrink: 0;
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  background: #C40018;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  transition: background 0.18s;
+}
+
+.menuButton:hover {
+  background: #a30014;
+}
+
+.menuLine {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.22s ease, opacity 0.18s ease;
+}
+
+/* × state when menu is open */
+.menuButton[aria-expanded="true"] .menuLine:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuButton[aria-expanded="true"] .menuLine:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menuButton[aria-expanded="true"] .menuLine:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile dropdown nav ─────────────────────────────────────────────────── */
+.navMobile {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.navMobileLink {
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #161616;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: background 0.14s;
+}
+
+.navMobileLink:hover {
+  background: rgba(196, 0, 24, 0.04);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navDesktop {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .logoImg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand {
+    /* allow brand to shrink slightly if needed */
+    flex-shrink: 1;
+  }
+}
+
+@media (min-width: 769px) {
+  .menuButton {
+    display: none !important;
+  }
+
+  .headerInner {
+    padding: 0 24px;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .navLink::after,
+  .menuLine {
+    transition: none;
+  }
+}

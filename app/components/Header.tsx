@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import styles from "../page.module.css";
+import Image from "next/image";
+import styles from "./Header.module.css";
 
 const menuItems = [
   { label: "ニュース", href: "#news" },
@@ -17,18 +18,25 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        {/* Emblem */}
-        <div className={styles.headerEmblem}>
-          <span className={styles.emblemText}>FC</span>
+        {/* Team logo */}
+        <div className={styles.logoWrap}>
+          <Image
+            src="/images/team-logo.png"
+            alt="FC.FRIENDS チームロゴ"
+            width={56}
+            height={56}
+            priority
+            className={styles.logoImg}
+          />
         </div>
 
-        {/* Brand name */}
-        <div className={styles.headerBrand}>
-          <p className={styles.headerBrandName}>FC.FRIENDS</p>
-          <p className={styles.headerBrandSince}>SINCE 2002</p>
+        {/* Club name */}
+        <div className={styles.brand}>
+          <p className={styles.brandName}>FC.FRIENDS</p>
+          <p className={styles.brandSince}>SINCE 2008</p>
         </div>
 
-        {/* Desktop nav */}
+        {/* Desktop navigation */}
         <nav className={styles.navDesktop} aria-label="グローバルナビゲーション">
           {menuItems.map((item) => (
             <a key={item.href} href={item.href} className={styles.navLink}>
@@ -37,24 +45,16 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Hamburger button – red square on mobile */}
+        {/* Hamburger — mobile only */}
         <button
-          className={styles.hamburger}
+          className={styles.menuButton}
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={open}
         >
-          {open ? (
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M4 4L16 16M16 4L4 16" stroke="white" strokeWidth="2.2" strokeLinecap="round"/>
-            </svg>
-          ) : (
-            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
-              <rect y="0" width="22" height="2.2" rx="1.1" fill="white"/>
-              <rect y="6.9" width="22" height="2.2" rx="1.1" fill="white"/>
-              <rect y="13.8" width="22" height="2.2" rx="1.1" fill="white"/>
-            </svg>
-          )}
+          <span className={styles.menuLine} />
+          <span className={styles.menuLine} />
+          <span className={styles.menuLine} />
         </button>
       </div>
 
@@ -75,3 +75,4 @@ export default function Header() {
     </header>
   );
 }
+

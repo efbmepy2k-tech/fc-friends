@@ -1,0 +1,551 @@
+/* ── Shared Schedule Styles ─────────────────────────────────────────────── */
+
+.pageContainer {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 24px 20px calc(88px + env(safe-area-inset-bottom));
+}
+
+.pageHeading {
+  padding: 12px 0 16px;
+}
+
+.pageOverline {
+  color: #B50918;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.pageTitle {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #161616;
+  font-weight: 900;
+}
+
+.pageSection {
+  margin-top: 28px;
+}
+
+/* ── Category filter strip ──────────────────────────────────────────────── */
+.filterWrap {
+  /* negative margin so the strip bleeds to container edges on mobile */
+  margin: 0 0 20px;
+}
+
+.filterStrip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0 8px;
+}
+
+.filterStrip::-webkit-scrollbar {
+  display: none;
+}
+
+.filterBtn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border: 1.5px solid #ddd;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.16s, color 0.16s, border-color 0.16s;
+}
+
+.filterBtn:hover:not(.filterBtnActive) {
+  border-color: #B50918;
+  color: #B50918;
+}
+
+.filterBtn:active {
+  opacity: 0.8;
+}
+
+.filterBtn:focus-visible {
+  outline: 3px solid #B50918;
+  outline-offset: 2px;
+}
+
+.filterBtnActive {
+  background: #B50918;
+  color: #fff;
+  border-color: #B50918;
+  font-weight: 800;
+}
+
+/* ── Section heading row ─────────────────────────────────────────────────── */
+.sectionRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+
+.sectionLabel {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: #B50918;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #161616;
+  margin: 0;
+}
+
+.moreLink {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #B50918;
+  white-space: nowrap;
+}
+
+/* ── Today card ─────────────────────────────────────────────────────────── */
+.todayCard {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.07);
+  margin-bottom: 12px;
+}
+
+.todayCardTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.catBadge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: #B50918;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.06em;
+}
+
+.typeBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #f0f0f0;
+  color: #555;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.timeRow {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.timeMain {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #B50918;
+  line-height: 1;
+}
+
+.timeSep {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #B50918;
+}
+
+.timeEnd {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #B50918;
+}
+
+.venueRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.noteText {
+  font-size: 0.82rem;
+  color: #666;
+  background: #f7f7f5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.cardActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btnMap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: 1.5px solid #B50918;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #B50918;
+  text-decoration: none;
+  transition: background 0.16s;
+}
+.btnMap:hover { background: rgba(181,9,24,0.06); }
+
+.btnDetail {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 9px 16px;
+  background: #B50918;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.16s;
+}
+.btnDetail:hover { background: #9a0714; }
+
+/* ── Upcoming list ───────────────────────────────────────────────────────── */
+.upcomingList {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.07);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.upcomingItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.14s;
+}
+.upcomingItem:last-child { border-bottom: none; }
+.upcomingItem:hover { background: #fafaf8; }
+
+.upcomingDate {
+  flex-shrink: 0;
+  text-align: center;
+  min-width: 40px;
+}
+
+.upcomingDateNum {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #161616;
+  line-height: 1;
+  display: block;
+}
+
+.upcomingDateMonth {
+  font-size: 0.7rem;
+  color: #888;
+  display: block;
+}
+
+.upcomingDateDay {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #888;
+  display: block;
+}
+
+.upcomingBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.upcomingCat {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #B50918;
+}
+
+.upcomingTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #161616;
+}
+
+.upcomingMeta {
+  font-size: 0.78rem;
+  color: #777;
+}
+
+.upcomingArrow {
+  font-size: 1.2rem;
+  color: #ccc;
+  flex-shrink: 0;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+.empty {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px 20px;
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
+}
+
+/* ── Calendar link button ────────────────────────────────────────────────── */
+.calBtnWrap {
+  margin-top: 8px;
+}
+
+.calBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px 24px;
+  background: #fff;
+  border: 2px solid #B50918;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #B50918;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.calBtn:hover {
+  background: #B50918;
+  color: #fff;
+}
+
+/* ── Monthly Calendar ────────────────────────────────────────────────────── */
+.calPage {
+  background: #F5F5F3;
+  min-height: 100vh;
+  padding: 0 0 80px;
+}
+
+.calHeader {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 16px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.calHeaderTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #161616;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.calNavRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.calNavBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.16s, color 0.16s;
+}
+.calNavBtn:hover { border-color: #B50918; color: #B50918; }
+.calNavBtn:focus-visible { outline: 3px solid #B50918; outline-offset: 2px; }
+
+.calMonthLabel {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #161616;
+  letter-spacing: -0.01em;
+}
+
+.calTodayBtn {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #B50918;
+  border: 1.5px solid #B50918;
+  border-radius: 8px;
+  padding: 6px 14px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.16s, color 0.16s;
+}
+.calTodayBtn:hover { background: #B50918; color: #fff; }
+
+.calBody {
+  padding: 16px 12px;
+}
+
+.calWeekHeader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+
+.calWeekLabel {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #999;
+  padding: 4px 0;
+}
+
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.calDayCell {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background: #fff;
+  border: 1.5px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 2px;
+  cursor: pointer;
+  transition: border-color 0.14s, background 0.14s;
+  min-height: 48px;
+}
+
+.calDayCell:hover { border-color: #B50918; }
+.calDayCell:focus-visible { outline: 3px solid #B50918; outline-offset: 1px; }
+
+.calDayCellEmpty {
+  background: transparent;
+  border-color: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+.calDayCellToday {
+  background: rgba(181,9,24,0.06);
+  border-color: #B50918;
+}
+
+.calDayCellSelected {
+  background: #B50918;
+  border-color: #B50918;
+}
+
+.calDayNum {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #161616;
+  line-height: 1;
+}
+
+.calDayNumSun { color: #cc2222; }
+.calDayNumSat { color: #2255cc; }
+
+.calDayCellSelected .calDayNum,
+.calDayCellSelected .calDayNumSun,
+.calDayCellSelected .calDayNumSat { color: #fff; }
+
+.calDayDots {
+  display: flex;
+  gap: 2px;
+  margin-top: 3px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.calDayDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #B50918;
+  flex-shrink: 0;
+}
+
+.calDayCellSelected .calDayDot { background: rgba(255,255,255,0.8); }
+
+/* ── Calendar day detail ─────────────────────────────────────────────────── */
+.calDayDetail {
+  margin-top: 16px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.07);
+}
+
+.calDayDetailTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #161616;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: 20px 14px calc(88px + env(safe-area-inset-bottom));
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .calDayNum { font-size: 0.72rem; }
+  .calDayDot { width: 4px; height: 4px; }
+  .calDayCell { padding: 3px 1px; }
+}

@@ -1141,7 +1141,8 @@
 @media (max-width: 768px) {
   /* ---- Layout ---- */
   .container {
-    padding: 0 16px 100px; /* bottom nav space */
+    /* 68px nav height + safe area inset */
+    padding: 0 16px calc(76px + env(safe-area-inset-bottom));
   }
 
   /* ---- Header ---- */
@@ -1289,9 +1290,10 @@
 
   /* ---- Footer ---- */
   .footerInner { grid-template-columns: 1fr; gap: 24px; padding: 36px 16px 28px; }
+  /* Footer bottom margin accounts for fixed nav */
+  .footer { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
 
-  /* ---- Bottom Nav ---- */
-  .bottomNav { display: flex; }
+  /* ---- Bottom Nav — handled by BottomNav.module.css ---- */
 }
 
 @media (max-width: 480px) {

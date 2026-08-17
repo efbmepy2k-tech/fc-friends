@@ -1,4 +1,4 @@
-/* ── TeamSection ────────────────────────────────────────────────────────── */
+﻿/* ── TeamSection (simplified top-page cards) ─────────────────────────────── */
 
 .section {
   padding: 56px 0;
@@ -42,7 +42,7 @@
 /* ── Card ───────────────────────────────────────────────────────────────── */
 .card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
   display: flex;
@@ -55,7 +55,7 @@
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* ── Image wrapper ───────────────────────────────────────────────────────── */
+/* ── Image wrapper ──────────────────────────────────────────────────────── */
 .imageWrap {
   position: relative;
   width: 100%;
@@ -73,20 +73,20 @@
   transform: scale(1.04);
 }
 
-/* ── Card body ───────────────────────────────────────────────────────────── */
+/* ── Card body ──────────────────────────────────────────────────────────── */
 .body {
-  padding: 28px 28px 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   flex: 1;
 }
 
-/* Category badge (KIDS / JUNIOR) */
+/* Category badge */
 .categoryBadge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .categoryLabel {
@@ -94,140 +94,45 @@
   font-weight: 800;
   letter-spacing: 0.2em;
   color: #B50918;
-  text-transform: uppercase;
   background: rgba(181, 9, 24, 0.07);
   padding: 3px 10px;
   border-radius: 999px;
 }
 
 .categoryTarget {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: #888;
 }
 
-/* Grade — large bold */
-.grade {
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: #161616;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.gradeSub {
-  font-size: 0.82rem;
-  color: #888;
-  margin-top: 2px;
-}
-
-/* Heading */
-.cardHeading {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #161616;
-  line-height: 1.45;
-}
-
 /* Description */
 .description {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: #555;
-  line-height: 1.8;
+  line-height: 1.75;
 }
 
-/* ── Steps (JUNIOR only) ─────────────────────────────────────────────────── */
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-top: 4px;
-}
-
-.step {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.step:last-child {
-  border-bottom: none;
-}
-
-.stepDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #B50918;
-  flex-shrink: 0;
-  margin-top: 5px;
-}
-
-.stepBody {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.stepTitle {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #B50918;
-  letter-spacing: 0.04em;
-}
-
-.stepLabel {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #161616;
-}
-
-.stepDesc {
-  font-size: 0.8rem;
-  color: #666;
-  line-height: 1.55;
-}
-
-/* ── Points (KIDS only) ──────────────────────────────────────────────────── */
-.points {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.pointTag {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #B50918;
-  background: rgba(181, 9, 24, 0.07);
-  border-radius: 8px;
-  padding: 6px 14px;
-}
-
-/* ── CTA button ──────────────────────────────────────────────────────────── */
+/* CTA */
 .cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 6px;
   margin-top: auto;
-  padding: 13px 24px;
-  border-radius: 999px;
-  font-size: 0.9rem;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 0.88rem;
   font-weight: 700;
-  background: #B50918;
-  color: #fff;
+  color: #B50918;
+  border: 1.5px solid #B50918;
+  background: transparent;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
   align-self: flex-start;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .cta:hover {
-  background: #9a0714;
-  transform: translateY(-1px);
+  background: #B50918;
+  color: #fff;
 }
 
 .cta:focus-visible {
@@ -235,7 +140,7 @@
   outline-offset: 3px;
 }
 
-/* ── prefers-reduced-motion ──────────────────────────────────────────────── */
+/* prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .card,
   .card:hover,

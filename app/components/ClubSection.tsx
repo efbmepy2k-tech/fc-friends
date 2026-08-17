@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { UserRoundCheck, Users, School, CalendarDays } from "lucide-react";
+import { UserRoundCheck, Users, MapPin, CalendarDays } from "lucide-react";
 import styles from "./ClubSection.module.css";
 
 const cards = [
@@ -16,8 +16,8 @@ const cards = [
     desc: "男性・女性コーチ在籍",
   },
   {
-    icon: <School size={40} strokeWidth={1.6} />,
-    title: "2つの小学校を中心に活動",
+    icon: <MapPin size={40} strokeWidth={1.6} />,
+    title: "活動拠点",
     desc: "大網小学校・季美の森小学校",
   },
   {

@@ -1,0 +1,302 @@
+/* ── Category detail page ────────────────────────────────────────────────── */
+
+.page {
+  min-height: 100vh;
+  background: #F5F5F3;
+  color: #161616;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+.heroWrap {
+  position: relative;
+  width: 100%;
+  height: clamp(240px, 40vw, 400px);
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.heroImg {
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.2) 60%);
+}
+
+.heroContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 24px;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #fff;
+  background: #B50918;
+  padding: 4px 12px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.heroTitle {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.heroSub {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.78);
+}
+
+/* ── Container ───────────────────────────────────────────────────────────── */
+.container {
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* ── Section ─────────────────────────────────────────────────────────────── */
+.section {
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.sectionTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #161616;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Lead text ───────────────────────────────────────────────────────────── */
+.lead {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.9;
+}
+
+/* ── Steps (junior) ──────────────────────────────────────────────────────── */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.step:last-child {
+  border-bottom: none;
+}
+
+.stepAge {
+  flex-shrink: 0;
+  min-width: 90px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #B50918;
+  padding-top: 2px;
+}
+
+.stepBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepTheme {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #161616;
+}
+
+.stepDesc {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ── Basic info (kids) ───────────────────────────────────────────────────── */
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.infoRow {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoRow dt {
+  flex-shrink: 0;
+  width: 90px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #888;
+}
+
+.infoRow dd {
+  font-size: 0.98rem;
+  color: #161616;
+  font-weight: 600;
+}
+
+/* ── Tags (kids themes) ──────────────────────────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #B50918;
+  background: rgba(181,9,24,0.08);
+  border-radius: 8px;
+  padding: 8px 18px;
+}
+
+/* ── Activity list (kids) ────────────────────────────────────────────────── */
+.activityList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.activityItem {
+  padding: 12px 0 12px 20px;
+  position: relative;
+  font-size: 0.95rem;
+  color: #333;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #B50918;
+}
+
+/* ── Navigation CTAs ─────────────────────────────────────────────────────── */
+.navLinks {
+  margin-bottom: 24px;
+}
+
+.navLinkSub {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #B50918;
+  text-decoration: none;
+  transition: opacity 0.18s;
+}
+
+.navLinkSub:hover {
+  opacity: 0.72;
+}
+
+.ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: #B50918;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.ctaPrimary:hover {
+  background: #9a0714;
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #444;
+  border: 1.5px solid #ddd;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ctaSecondary:hover {
+  border-color: #B50918;
+  color: #B50918;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .heroContent {
+    padding: 24px 16px;
+  }
+
+  .container {
+    padding: 0 16px 80px;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
